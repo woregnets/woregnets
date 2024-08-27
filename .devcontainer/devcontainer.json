@@ -1,0 +1,13 @@
+{
+  "name": "mono",
+  image: "mcr.microsoft.com/devcontainers/typescript-node",
+  // "forwardPorts": [],
+  features: {
+    "ghcr.io/devcontainers/features/python:1": {}
+  },
+  "customizations": {
+    "jetbrains": {
+      "backend": "IntelliJ"
+    }
+  }
+}
