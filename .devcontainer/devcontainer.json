@@ -1,13 +1,17 @@
 {
-  "name": "mono",
+  name: "woregnets",
   image: "mcr.microsoft.com/devcontainers/typescript-node",
-  // "forwardPorts": [],
   features: {
     "ghcr.io/devcontainers/features/python:1": {}
   },
   "customizations": {
     "jetbrains": {
-      "backend": "IntelliJ"
+      "backend": "IntelliJ",
+      "plugins" : [
+        "name.kropp.intellij.makefile",
+        "PythonCore",
+        "Pythonid",
+      ],
     }
   }
 }
