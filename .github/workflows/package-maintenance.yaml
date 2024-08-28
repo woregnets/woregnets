@@ -16,5 +16,5 @@ jobs:
         with: 
           package-type: container
           package-name: build
-          min-versions-to-keep: 0
+          min-versions-to-keep: 1
           
