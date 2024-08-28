@@ -8,6 +8,8 @@ on:
 jobs: 
   remove-packages:
     runs-on: ubuntu-latest
+    permissions: 
+      packages: write
     steps:
       - name: Remove old packages
         uses: actions/delete-package-versions@v5
