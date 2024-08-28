@@ -1,0 +1,17 @@
+name: Package maintenance
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+      
+jobs: 
+  remove-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove old packages
+        uses: actions/delete-package-versions@v5
+        with: 
+          package-type: container
+          package-name: build
+          min-versions-to-keep: 0
+          
