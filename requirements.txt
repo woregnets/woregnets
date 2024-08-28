@@ -1,1 +1,4 @@
 pillow==10.4.0
+wradlib==2.1.0
+GDAL==3.9.1
+beautifulsoup4==4.12.3

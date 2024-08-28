@@ -1,8 +1,7 @@
 {
   name: "woregnets",
-  image: "mcr.microsoft.com/devcontainers/typescript-node",
-  features: {
-    "ghcr.io/devcontainers/features/python:1": {}
+  build: {
+    dockerfile: "Dockerfile"
   },
   "customizations": {
     "jetbrains": {
