@@ -5,6 +5,5 @@ venv:
 test: tests/ venv 
 	python -m unittest discover -s $< -p "*_test.py"
 	
-generate: venv
+generate: venv woregnets
 	python -m woregnets build/ 
-	

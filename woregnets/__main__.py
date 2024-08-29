@@ -8,6 +8,7 @@ import sys
 
 def create_images(outdir, n=10):
   outPath = pathlib.Path(outdir)
+  outPath.mkdir(parents=True, exist_ok=True)
   tileDir = outPath.joinpath("tiles")
   tiles.download_tiles([[64, 70], [39, 46]], 7, tileDir)
   
@@ -23,7 +24,5 @@ def create_images(outdir, n=10):
 
 if __name__ == '__main__':
   work_dir = sys.argv[1]
-  
-  pathlib.Path(work_dir).mkdir(parents=True, exist_ok=True)
   
   create_images(work_dir, 10)
