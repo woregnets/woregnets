@@ -1,5 +1,6 @@
 import datetime
 import os
+import pathlib
 import re
 import tarfile
 import urllib.request
@@ -72,6 +73,8 @@ xs = range(64, 70)
 
 
 def create_rain_image(input_file, output_dir, variant="000"):
+  outPath = pathlib.Path(output_dir)
+  outPath.mkdir(parents=True, exist_ok=True)
   rain_img = PIL.Image.new("RGBA", (1536, 1792))
   base_name = os.path.basename(input_file).split(".")[0]
   now_file = f"{base_name}_{variant}"

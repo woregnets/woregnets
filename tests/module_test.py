@@ -1,7 +1,11 @@
+import tempfile
 import unittest
-import importlib
+
+import woregnets.__main__ as main
 
 
 class ModuleTest(unittest.TestCase):
-    def test_loading(self):
-        importlib.import_module("woregnets")
+
+    def test_main(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            main.create_images(tmp, 2)
