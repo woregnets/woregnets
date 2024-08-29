@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wo regnet es?</title>
+</head>
+<body>
+
+<div id="radar_images">
+  <img src="{{world_image}}" alt="Karte von Deutschland"/>
+
+  {{#rain_images}}
+  <img src="{{url}}" alt="Regenradarbild von {{date}}"/>
+  {{/rain_images}}
+</div>
+</body>
+</html>

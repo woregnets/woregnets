@@ -4,6 +4,7 @@ import pathlib
 import woregnets.dwd as dwd
 import woregnets.osm as osm
 import woregnets.tiles as tiles
+import woregnets.html as html
 import sys
 
 def create_images(outdir, n=10):
@@ -21,6 +22,9 @@ def create_images(outdir, n=10):
   radar_image_path = outPath.joinpath("radar_images")
   for file in dwdPath.glob("WN*.tar.bz2"):
     dwd.create_rain_image(file, radar_image_path)
+      
+  htmlPath = outPath.joinpath("html")
+  html.render_html(radar_image_path, htmlPath)
 
 if __name__ == '__main__':
   work_dir = sys.argv[1]
