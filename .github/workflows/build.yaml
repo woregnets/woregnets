@@ -34,11 +34,17 @@ jobs:
       image: ghcr.io/${{ github.repository_owner }}/build:${{ github.run_id }}
     steps:
       - uses: actions/checkout@v4
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          key: ${{ hashFiles('requirements.txt') }}
+          path: build/pip-cache/
       - name: Install requirements
         run: |
           make venv
           source venv/bin/activate
-          pip install -r requirements.txt
+          mkdir -p build/pip-cache
+          pip install --cache-dir build/pip-cache -r requirements.txt
       - name: Run Tests
         run: |
           source venv/bin/activate
