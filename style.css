@@ -12,6 +12,18 @@ div#radar_images {
     }
 }
 
+div#attribution {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+
+    & > p {
+        padding: 1px;
+        margin: 0;
+    }
+}
+
 div#radar_images img {
 
     /*max-width: 100%;*/
@@ -25,7 +37,7 @@ div#radar_images img {
     bottom: 0;
     visibility: hidden;
     animation: image_cycle 10s infinite;
-    
+
     &:nth-child(1) {
         filter: grayscale(1);
     }
