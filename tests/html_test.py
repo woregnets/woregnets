@@ -16,5 +16,5 @@ class HtmlTest(unittest.TestCase):
             self.assertTrue(index_html.exists())
             bs = bs4.BeautifulSoup(index_html.read_text(encoding='utf-8'), "html.parser")
             self.assertEqual(3, len(bs.find(id="radar_images").find_all("img")))
-            self.assertEqual("/images/WN2408220915_000.png", bs.find(id="radar_images").find_all("img")[1]["src"])
-            self.assertEqual("/images/WN2408220920_000.png", bs.find(id="radar_images").find_all("img")[2]["src"])
+            self.assertEqual("/build/radar_images/WN2408220915_000.png", bs.find(id="radar_images").find_all("img")[1]["src"])
+            self.assertEqual("/build/radar_images/WN2408220920_000.png", bs.find(id="radar_images").find_all("img")[2]["src"])

@@ -75,9 +75,14 @@ xs = range(64, 70)
 def create_rain_image(input_file, output_dir, variant="000"):
   outPath = pathlib.Path(output_dir)
   outPath.mkdir(parents=True, exist_ok=True)
-  rain_img = PIL.Image.new("RGBA", (1536, 1792))
+  
   base_name = os.path.basename(input_file).split(".")[0]
   now_file = f"{base_name}_{variant}"
+  target_path = os.path.join(output_dir, f"{now_file}.png")
+  if os.path.exists(target_path):
+    return
+  
+  rain_img = PIL.Image.new("RGBA", (1536, 1792))
   print(f"Generating image for file {input_file}: {now_file}")
   with tarfile.open(input_file) as archive:
 
