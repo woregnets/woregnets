@@ -7,8 +7,12 @@ test: tests/ venv
 
 .PHONY: build 
 build: venv woregnets
-	python -m woregnets $@ 
+	python -m woregnets $@
+
+node_modules:
+	pnpm install 
 	
-build/dist: build
+build/dist: build node_modules
 	pnpm run build
 	mv build/dist/build/html/index.html build/dist
+	rm -r build/html
