@@ -17,9 +17,9 @@ div#attribution {
     right: 0;
     bottom: 0;
     background-color: white;
+    padding: 2px;
 
     & > p {
-        padding: 1px;
         margin: 0;
     }
 }
