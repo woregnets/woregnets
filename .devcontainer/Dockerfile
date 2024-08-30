@@ -2,6 +2,8 @@ FROM docker.io/archlinux/archlinux
 
 RUN pacman --noconfirm -Syu git base-devel unzip zip wget curl sudo less python nodejs bash-completion gdal
 
+RUN corepack enable
+
 RUN useradd -m -s /bin/bash dev
 
 RUN echo "dev ALL=(ALL) NOPASSWD: /usr/bin/pacman" > /etc/sudoers.d/dev

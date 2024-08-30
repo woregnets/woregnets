@@ -11,3 +11,5 @@ LABEL org.opencontainers.image.description="Ephemaral build image for one github
       org.opencontainers.image.version=""
 
 RUN pacman --noconfirm -Syu git base-devel unzip zip wget curl sudo less python nodejs bash-completion gdal
+
+RUN corepack enable
