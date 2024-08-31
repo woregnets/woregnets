@@ -39,10 +39,6 @@ div#radar_images img {
     visibility: hidden;
     animation: image_cycle 10s infinite;
 
-    &:nth-child(1) {
-        filter: grayscale(1);
-    }
-
     &:nth-child(n+1) {
         animation-play-state: inherit;
     }

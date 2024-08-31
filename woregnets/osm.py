@@ -48,7 +48,7 @@ def merge_tiles(base_dir, zoom_level):
 
   tilesByCoord = dict([[(x, y), filename] for x, y, filename in tiles])
 
-  world_map = PIL.Image.new("RGBA", (xTiles * 256, yTiles * 256))
+  world_map = PIL.Image.new("L", (xTiles * 256, yTiles * 256))
 
   for x in range(minX, maxX + 1):
     for y in range(minY, maxY + 1):

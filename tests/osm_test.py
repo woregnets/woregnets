@@ -22,9 +22,11 @@ class OsmTest(unittest.TestCase):
 
   def test_tile_merging(self):
     merged = osm.merge_tiles(self._dir.name, 7)
-    self.assertEqual((255, 0, 0, 255), merged.getpixel((100, 100)))
-    self.assertEqual((0, 0, 255, 255), merged.getpixel((300, 100)))
-    self.assertEqual((0, 255, 0, 255), merged.getpixel((100, 300)))
-    self.assertEqual((0, 0, 0, 255), merged.getpixel((300, 300)))
+    self.assertEqual(76, merged.getpixel((100, 100)))
+    self.assertEqual(29, merged.getpixel((300, 100)))
+    self.assertEqual(150, merged.getpixel((100, 300)))
+    self.assertEqual(0, merged.getpixel((300, 300)))
 
     self.assertEqual((256 * 2, 256 * 2), merged.size)
+    
+    self.assertEqual("L", merged.mode)
