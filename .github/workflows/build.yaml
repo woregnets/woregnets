@@ -37,7 +37,7 @@ jobs:
       - name: Cache pip
         uses: actions/cache@v4
         with:
-          key: ${{ hashFiles('requirements.txt') }}
+          key: pip
           path: build/pip-cache/
       - name: Install requirements
         run: |

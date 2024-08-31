@@ -26,12 +26,12 @@ jobs:
       - name: Cache pip
         uses: actions/cache@v4
         with:
-          key: ${{ hashFiles('requirements.txt') }}
+          key: pip
           path: 'build/pip-cache'  
       - name: Cache tiles
         uses: actions/cache@v4
         with:
-          key: tiles-${{ github.sha }}'
+          key: tiles
           path: 'build/tiles'
       - name: Build artifact package
         run: |
