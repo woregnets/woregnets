@@ -23,6 +23,11 @@ jobs:
       image: ghcr.io/woregnets/main:${{ needs.lookup-container-version.outputs.sha }}
     steps:
       - uses: actions/checkout@v4
+      - name: Cache tiles
+        uses: actions/cache@v4
+        with:
+          key: tiles-${{ github.sha }}'
+          path: 'build/tiles'
       - name: Build artifact package
         run: |
           make venv
