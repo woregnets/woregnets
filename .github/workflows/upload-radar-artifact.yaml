@@ -37,6 +37,7 @@ jobs:
         run: |
           make venv
           source venv/bin/activate
+          mkdir -p build/pip-cache
           pip install --cache-dir build/pip-cache -r requirements.txt
           make build/dist
       - name: Upload artifact
