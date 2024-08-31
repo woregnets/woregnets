@@ -15,4 +15,4 @@ node_modules:
 build/dist: build node_modules
 	pnpm run build
 	mv build/dist/build/html/index.html build/dist
-	rm -r build/html
+	rm -r build/dist/build/
