@@ -7,7 +7,10 @@ export default {
     build: {
         outDir: "build/dist",
         rollupOptions: {
-            input: "build/html/index.html",
+            input: {
+                index:"build/html/index.html",
+                404: "404.html"
+            },
         },
     }
 }satisfies UserConfig
