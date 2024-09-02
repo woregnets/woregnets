@@ -4,6 +4,9 @@ import chevron
 
 import woregnets.dwd as dwd
 import pathlib
+import zoneinfo
+
+GERMANY_TZ = zoneinfo.ZoneInfo("Europe/Berlin")
 
 def write_index_html(out_dir, rain_images):
   os.makedirs(out_dir, exist_ok=True)
@@ -22,6 +25,7 @@ def render_html(rain_images_dir, out_dir):
   for rain_image in rain_images:
     rain_image["url"] = "/build/radar_images/" + rain_image["path"]
     rain_image["full_path"] = os.path.join(rain_images_dir, rain_image["path"])
+    rain_image["date_string"] = rain_image["date"].astimezone(GERMANY_TZ).strftime("%d.%m.%y %H:%M")
 
   rain_images = sorted(rain_images, key=lambda ri: ri["date"])[-10:]
 
