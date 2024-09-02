@@ -26,7 +26,7 @@ def download_tiles(area, zoom_level, output_dir):
 
         dir = os.path.dirname(target_file)
         os.makedirs(dir, exist_ok=True)
-        with open(os.path.join(output_dir, f"{zoom_level}/{x}/{y}.png"), 'wb') as out:
+        with open(target_file, 'wb') as out:
           out.write(bs)
           downloaded = downloaded + 1
       else:
