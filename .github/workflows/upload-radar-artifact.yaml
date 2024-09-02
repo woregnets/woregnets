@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs: 
       sha: ${{ steps.main_sha.outputs.sha }}
+      date: ${{ steps.main_sha.outputs.date }}
     steps:
       - uses: actions/checkout@v4
         with: 
@@ -16,6 +17,7 @@ jobs:
         id: main_sha
         run: |
           echo "sha=$(git log -1 --format=%H)" >> "$GITHUB_OUTPUT"
+          echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
   create-artifact:
     runs-on: ubuntu-latest
     needs: lookup-container-version
@@ -28,6 +30,13 @@ jobs:
         with:
           key: tiles
           path: 'build/tiles'
+      - name: Cache dwd data
+        uses: actions/cache@v4
+        with:
+          key: dwd-${{ needs.lookup-container-version.outputs.date }}
+          path: |
+            build/dwd
+            build/radar_images
       - name: Build artifact package
         run: |
           source /opt/python/bin/activate
