@@ -15,7 +15,7 @@ test: tests/ venv
 	python -m unittest discover -s $< -p "*_test.py"
 
 .PHONY: build 
-build: venv woregnets
+build: woregnets
 	python -m woregnets $@
 
 node_modules:

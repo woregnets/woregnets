@@ -23,11 +23,6 @@ jobs:
       image: ghcr.io/woregnets/main:${{ needs.lookup-container-version.outputs.sha }}
     steps:
       - uses: actions/checkout@v4
-      - name: Cache pip
-        uses: actions/cache@v4
-        with:
-          key: pip
-          path: 'build/pip-cache'  
       - name: Cache tiles
         uses: actions/cache@v4
         with:
@@ -35,10 +30,7 @@ jobs:
           path: 'build/tiles'
       - name: Build artifact package
         run: |
-          make venv
-          source venv/bin/activate
-          mkdir -p build/pip-cache
-          pip install --cache-dir build/pip-cache -r requirements.txt
+          source /opt/python/bin/activate
           make build/dist
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
