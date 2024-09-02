@@ -8,7 +8,6 @@ on:
 jobs:
   lookup-container-version:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
     outputs: 
       sha: ${{ steps.main_sha.outputs.sha }}
       date: ${{ steps.main_sha.outputs.date }}
@@ -23,6 +22,7 @@ jobs:
           echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
   create-artifact:
     runs-on: ubuntu-latest
+    timeout-minutes: 4
     needs: lookup-container-version
     container:
       image: ghcr.io/woregnets/main:${{ needs.lookup-container-version.outputs.sha }}
