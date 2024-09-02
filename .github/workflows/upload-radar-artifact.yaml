@@ -2,10 +2,13 @@ name: Refresh artifact
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "3/5 * * * *"
 
 jobs:
   lookup-container-version:
     runs-on: ubuntu-latest
+    timeout-minutes: 4
     outputs: 
       sha: ${{ steps.main_sha.outputs.sha }}
       date: ${{ steps.main_sha.outputs.date }}
