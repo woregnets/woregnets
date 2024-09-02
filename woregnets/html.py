@@ -26,6 +26,7 @@ def render_html(rain_images_dir, out_dir):
     rain_image["url"] = "/build/radar_images/" + rain_image["path"]
     rain_image["full_path"] = os.path.join(rain_images_dir, rain_image["path"])
     rain_image["date_string"] = rain_image["date"].astimezone(GERMANY_TZ).strftime("%d.%m.%y %H:%M")
+    rain_image["time_string"] = rain_image["date"].astimezone(GERMANY_TZ).strftime("%H:%M")
 
   rain_images = sorted(rain_images, key=lambda ri: ri["date"])[-10:]
 

@@ -9,15 +9,19 @@
 <body>
 
 <div id="radar_images">
-  <img src="{{world_image}}" alt="Karte von Deutschland"/>
-
-  {{#rain_images}}
-  <img src="{{url}}" alt="Regenradarbild vom {{date_string}}"/>
-  {{/rain_images}}
-  <div id="attribution">
-    <p>Map data from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a></p>
-    <p>Radar data from <a href="https://www.dwd.de">DWD</a></p>
+  <div id="osm">
+    <img src="{{world_image}}" alt="Karte von Deutschland"/>
+    <div id="attribution">
+      <p>Map data from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a></p>
+      <p>Radar data from <a href="https://www.dwd.de">DWD</a></p>
+    </div>
   </div>
+  {{#rain_images}}
+  <div class="rain-image">
+    <p>{{time_string}} Uhr</p>
+    <img src="{{url}}" alt="Regenradarbild vom {{date_string}}"/>
+  </div>
+  {{/rain_images}}
 </div>
 </body>
 </html>

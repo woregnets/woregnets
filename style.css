@@ -25,7 +25,7 @@ div#attribution {
     }
 }
 
-div#radar_images img {
+div#radar_images > div {
 
     /*max-width: 100%;*/
     /*max-height: 100%;*/
@@ -38,6 +38,16 @@ div#radar_images img {
     bottom: 0;
     visibility: hidden;
     animation: image_cycle 10s infinite;
+    
+    &.rain-image > p {
+        display: inline-block;
+        position: sticky;
+        left: 10px;
+        right: 10px;
+        top: 10px;
+        margin: 0;
+        padding: 2px;
+    }
 
     &:nth-child(n+1) {
         animation-play-state: inherit;
