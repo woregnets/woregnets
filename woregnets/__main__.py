@@ -1,4 +1,3 @@
-import os
 import pathlib
 
 import woregnets.dwd as dwd
@@ -20,7 +19,7 @@ def create_images(outdir, n=10):
   dwd.download_last_n_files_cn_files(dwdPath, n=n)
   
   radar_image_path = outPath.joinpath("radar_images")
-  for file in dwdPath.glob("WN*.tar.bz2"):
+  for file in sorted(dwdPath.glob("WN*.tar.bz2"))[-n:]:
     dwd.create_rain_image(file, radar_image_path)
       
   htmlPath = outPath.joinpath("html")
@@ -28,5 +27,6 @@ def create_images(outdir, n=10):
 
 if __name__ == '__main__':
   work_dir = sys.argv[1]
-  
-  create_images(work_dir, 10)
+  print(work_dir)
+
+  create_images("build", 10)
