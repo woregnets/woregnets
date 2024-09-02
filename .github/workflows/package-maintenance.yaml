@@ -11,10 +11,16 @@ jobs:
     permissions: 
       packages: write
     steps:
-      - name: Remove old packages
+      - name: Remove old build containers
         uses: actions/delete-package-versions@v5
         with: 
           package-type: container
           package-name: build
           min-versions-to-keep: 1
+      - name: Remove old main containers
+        uses: actions/delete-package-versions@v5
+        with:
+          package-type: container
+          package-name: main
+          min-versions-to-keep: 10
           
