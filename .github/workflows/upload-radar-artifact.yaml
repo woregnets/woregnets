@@ -11,6 +11,9 @@ jobs:
     outputs: 
       sha: ${{ steps.main_sha.outputs.sha }}
       date: ${{ steps.main_sha.outputs.date }}
+      dwd_cache_key: ${{ steps.main_sha.outputs.dwd_cache_key }}
+      dwd_cache_restore_key1: ${{ steps.main_sha.outputs.dwd_cache_restore_key1 }}
+      dwd_cache_restore_key2: ${{ steps.main_sha.outputs.dwd_cache_restore_key2 }}
     steps:
       - uses: actions/checkout@v4
         with: 
@@ -20,6 +23,10 @@ jobs:
         run: |
           echo "sha=$(git log -1 --format=%H)" >> "$GITHUB_OUTPUT"
           echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+          echo "dwd_cache_key=$(date +'%Y-%m-%dT%H:%M' | head -c 15)" >> "$GITHUB_OUTPUT"
+          echo "dwd_cache_restore_key1=$(date +'%Y-%m-%dT%H:%M' --date "-10min" | head -c 15)" >> "$GITHUB_OUTPUT"
+          echo "dwd_cache_restore_key2=$(date +'%Y-%m-%dT%H:%M' --date "-20min" | head -c 15)" >> "$GITHUB_OUTPUT"
+          
   create-artifact:
     runs-on: ubuntu-latest
     timeout-minutes: 4
@@ -36,7 +43,10 @@ jobs:
       - name: Cache dwd data
         uses: actions/cache@v4
         with:
-          key: dwd-${{ needs.lookup-container-version.outputs.date }}
+          key: dwd-${{ needs.lookup-container-version.outputs.dwd_cache_key }}
+          restore-keys: |
+            dwd-${{ needs.lookup-container-version.outputs.dwd_cache_restore_key1 }}
+            dwd-${{ needs.lookup-container-version.outputs.dwd_cache_restore_key2 }}
           path: |
             build/dwd
             build/radar_images
