@@ -10,6 +10,12 @@ LABEL org.opencontainers.image.description="Ephemaral build image for one github
       org.opencontainers.image.url="" \
       org.opencontainers.image.version=""
 
-RUN pacman --noconfirm -Syu git base-devel unzip zip wget curl sudo less python nodejs bash-completion gdal
+RUN pacman --noconfirm -Syu make git gcc python nodejs gdal
 
 RUN corepack enable
+
+COPY /requirements.txt /requirements.txt
+RUN python -m venv /opt/python \
+ && source /opt/python/bin/activate \
+ && pip install -r /requirements.txt \
+ && rm /requirements.txt

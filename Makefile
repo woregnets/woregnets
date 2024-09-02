@@ -1,3 +1,12 @@
+version = "latest"
+
+build/main-container-id: .github/Dockerfile
+	mkdir -p build/
+	docker build . \
+      --rm \
+      --file .github/Dockerfile \
+      --tag "ghcr.io/woregnets/build:${version}" > $@
+
 venv:
 	python -m venv venv/
 	
