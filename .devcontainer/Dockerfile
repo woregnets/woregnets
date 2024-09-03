@@ -1,8 +1,6 @@
-FROM docker.io/archlinux/archlinux
+FROM ghcr.io/woregnets/main
 
-RUN pacman --noconfirm -Syu git base-devel unzip zip wget curl sudo less python nodejs bash-completion gdal
-
-RUN corepack enable
+RUN pacman --noconfirm -Syu base-devel unzip zip wget curl sudo less bash-completion
 
 RUN useradd -m -s /bin/bash dev
 
