@@ -30,6 +30,10 @@ div#radar_images > div {
     &.rain-image > p {
         @apply inline-block sticky left-3 right-3 top-3 m-0 p-1;
     }
+    
+    &.rain-image > img {
+        @apply absolute top-0 left-0;
+    }
 
     &:nth-child(n+1) {
         animation-play-state: inherit;
