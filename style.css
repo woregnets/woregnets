@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+a {
+    @apply text-blue-700 underline;
+}
+
 body {
     @apply text-center;
 }
@@ -15,7 +19,8 @@ div#radar_images {
 }
 
 div#attribution {
-    @apply absolute right-0 bottom-0 bg-white p-1 text-left;
+    @apply absolute right-0 bottom-0 bg-white p-1 text-left text-xs;
+    z-index: 9999;
 
     & > p {
         @apply: m-0;
