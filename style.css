@@ -3,103 +3,97 @@
 @tailwind utilities;
 
 a {
-    @apply text-blue-700 underline;
+  @apply text-blue-700 underline;
 }
 
 body {
-    @apply text-center;
+  @apply text-center;
 }
 
 div#radar_images {
-    @apply inline-block relative m-auto;
+  @apply inline-block relative m-auto;
 
-    &:hover {
-        animation-play-state: paused;
-    }
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 
 div#attribution {
-    @apply absolute right-0 bottom-0 bg-white p-1 text-left text-xs;
-    z-index: 9999;
+  @apply absolute right-0 bottom-0 bg-white p-1 text-left text-xs;
+  z-index: 9999;
 
-    & > p {
-        @apply: m-0;
-    }
+  & > p {
+    @apply: m-0;
+  }
 }
 
 div#radar_images > div {
-    
-    @apply w-auto h-auto absolute top-0 left-0 right-0 bottom-0 invisible;
-    animation: image_cycle 10s infinite;
-    
-    &.rain-image > p {
-        @apply inline-block sticky left-3 right-3 top-3 m-0 p-1;
-    }
-    
-    &.rain-image > img {
-        @apply absolute top-0 left-0;
-    }
+  @apply w-auto h-auto absolute top-0 left-0 right-0 bottom-0 invisible;
+  animation: image_cycle 10s infinite;
 
-    &:nth-child(n+1) {
-        animation-play-state: inherit;
-    }
+  &.rain-image > p {
+    @apply inline-block sticky left-3 right-3 top-3 m-0 p-1;
+  }
 
-    &:nth-child(1) {
-        @apply relative visible animate-none;
-    }
+  &.rain-image > img {
+    @apply absolute top-0 left-0;
+  }
 
-    &:nth-child(2) {
-        animation-delay: 0s
-    }
+  &:nth-child(n + 1) {
+    animation-play-state: inherit;
+  }
 
-    &:nth-child(3) {
-        animation-delay: 1s
-    }
+  &:nth-child(1) {
+    @apply relative visible animate-none;
+  }
 
-    &:nth-child(4) {
-        animation-delay: 2s
-    }
+  &:nth-child(2) {
+    animation-delay: 0s;
+  }
 
-    &:nth-child(5) {
-        animation-delay: 3s
-    }
+  &:nth-child(3) {
+    animation-delay: 1s;
+  }
 
-    &:nth-child(6) {
-        animation-delay: 4s
-    }
+  &:nth-child(4) {
+    animation-delay: 2s;
+  }
 
-    &:nth-child(7) {
-        animation-delay: 5s
-    }
+  &:nth-child(5) {
+    animation-delay: 3s;
+  }
 
-    &:nth-child(8) {
-        animation-delay: 6s
-    }
+  &:nth-child(6) {
+    animation-delay: 4s;
+  }
 
-    &:nth-child(9) {
-        animation-delay: 7s
-    }
+  &:nth-child(7) {
+    animation-delay: 5s;
+  }
 
-    &:nth-child(10) {
-        animation-delay: 8s
-    }
+  &:nth-child(8) {
+    animation-delay: 6s;
+  }
 
-    &:nth-child(11) {
-        animation-delay: 9s
-    }
+  &:nth-child(9) {
+    animation-delay: 7s;
+  }
+
+  &:nth-child(10) {
+    animation-delay: 8s;
+  }
+
+  &:nth-child(11) {
+    animation-delay: 9s;
+  }
 }
 
 @keyframes image_cycle {
-    0% {
-        @apply visible;
-    }
+  0% {
+    @apply visible;
+  }
 
-    10% {
-        @apply invisible;
-    }
+  10% {
+    @apply invisible;
+  }
 }
-
-
-
-
-

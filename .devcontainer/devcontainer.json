@@ -1,16 +1,12 @@
 {
-  name: "woregnets",
-  build: {
-    dockerfile: "Dockerfile"
+  "name": "woregnets",
+  "build": {
+    "dockerfile": "Dockerfile"
   },
   "customizations": {
     "jetbrains": {
       "backend": "IntelliJ",
-      "plugins" : [
-        "name.kropp.intellij.makefile",
-        "PythonCore",
-        "Pythonid",
-      ],
+      "plugins": ["name.kropp.intellij.makefile", "PythonCore", "Pythonid"]
     }
   }
 }

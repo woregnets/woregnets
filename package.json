@@ -6,11 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write **/*.{js,ts,json,css,yaml}",
+    "check-format": "prettier --check **/*.{js,ts,json,css,yaml}"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.45",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.10",
     "vite": "^5.4.1"
   },
