@@ -1,6 +1,6 @@
 name: Build woregnets
 
-on: [ push ]
+on: [push]
 
 jobs:
   build-container:
@@ -10,6 +10,11 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
+      - name: Check format
+        run: |
+          corepack enable
+          pnpm install
+          pnpm run check-format
       - name: Build container
         run: |
           make build/main-container-id version="${GITHUB_RUN_ID}"

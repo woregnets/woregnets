@@ -4,16 +4,16 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 4 * * *"
-      
-jobs: 
+
+jobs:
   remove-packages:
     runs-on: ubuntu-latest
-    permissions: 
+    permissions:
       packages: write
     steps:
       - name: Remove old build containers
         uses: actions/delete-package-versions@v5
-        with: 
+        with:
           package-type: container
           package-name: build
           min-versions-to-keep: 1
@@ -23,4 +23,3 @@ jobs:
           package-type: container
           package-name: main
           min-versions-to-keep: 10
-          
