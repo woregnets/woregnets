@@ -1,4 +1,4 @@
-version = "latest"
+version = latest
 
 build/main-container-id: .github/Dockerfile
 	mkdir -p build/

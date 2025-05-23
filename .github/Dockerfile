@@ -13,6 +13,7 @@ LABEL org.opencontainers.image.description="Ephemaral build image for one github
 RUN pacman --noconfirm -Syu make git gcc python nodejs gdal
 
 RUN corepack enable
+RUN corepack install -g pnpm@9.15.9+sha512.68046141893c66fad01c079231128e9afb89ef87e2691d69e4d40eee228988295fd4682181bae55b58418c3a253bde65a505ec7c5f9403ece5cc3cd37dcf2531
 
 COPY /requirements.txt /requirements.txt
 RUN python -m venv /opt/python \
